@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+  	"test": "npm run test:js",
+  	"test:js": "jshint js/*.js",
     "watch-browser": "npm run watch:browser-sync",
     "watch:browser-sync": "browser-sync start --server --files css/*.css *.html",
     "init-project": "npm install && npm run init:dir && npm run init:files && npm run init:gitignore",
