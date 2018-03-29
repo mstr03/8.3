@@ -1,0 +1,45 @@
+{
+  "name": "nauka-gita-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  	"test": "npm run test:js",
+  	"test:js": "globstar jshint js/*.js",
+    "watch-browser": "npm run watch:browser-sync",
+    "watch:browser-sync": "browser-sync start --server --files css/*.css *.html",
+    "init-project": "npm install && npm run init:dir && npm run init:files && npm run init:gitignore",
+    "init:dir": "mkdir sass css vendor images js",
+    "init:files": "touch README.md index.html sass/style.scss js/sript.js",
+    "init:gitignore": "curl https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -o .gitignore",
+    "build": "npm run build:clean && npm run build:sass",
+    "build:clean": "rimraf css",
+    "build:sass": "node-sass --output-style compact -o css sass",
+    "watch-sass": "npm run watch:sassprefixer",
+    "watch:sassprefixer": "onchange sass -p -- node-sass --output-style expanded -o css sass && autoprefixer-cli -o sass/style.scss css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mstr03/nauka-gita-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mstr03/nauka-gita-2/issues"
+  },
+  "homepage": "https://github.com/mstr03/nauka-gita-2#readme",
+  "dependencies": {
+    "browser-sync": "^2.23.6"
+  },
+  "devDependencies": {
+    "autoprefixer-cli": "^1.0.0",
+    "globstar": "^1.0.0",
+    "jshint": "^2.9.5",
+    "node-sass": "^4.7.2",
+    "npm-run-all": "^4.1.2",
+    "nu-html-checker": "^0.1.0",
+    "onchange": "^3.3.0",
+    "rimraf": "^2.6.2"
+  }
+}
